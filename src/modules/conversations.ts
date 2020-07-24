@@ -35,6 +35,15 @@ class ConversationsApi extends BaseApi {
     showInteractionDetails(conversationId: string) {
         super.sendMsgToPc('showInteractionDetails', {conversationId: conversationId});
     }
+
+    /**
+     * Send a message to be filled into the interaction message box for the agent to review and send.
+     * This function works specifically with a bound interaction when both the interaction and calling app
+     * are visible, it is not intended (and will not work) for situations where the interaction is not active.
+     */
+    proposeMessage(message: string) {
+        super.sendMsgToPc('proposeMessage', { message });
+    }
 }
 
 export default ConversationsApi;
