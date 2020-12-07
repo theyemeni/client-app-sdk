@@ -37,6 +37,10 @@
             button:active {
                 box-shadow: none;
             }
+            button:disabled {
+                background-color: grey;
+                cursor: not-allowed;
+            }
         </style>
     </head>
     <body>
@@ -69,9 +73,14 @@
             <form>
                 <div class="header">Custom:</div>
                 <input type="text" />
-                <button type="submit">Fill</button>
+                <button disabled type="submit">Fill</button>
             </form>
         `);
+
+        const [,customInput,fillCustomBtn] = customResponse.children;
+        customInput.oninput = e => {
+            fillCustomBtn.disabled = !e.target.value;
+        }
 
         customResponse.addEventListener('submit', event => {
             let message = event.target[0].value;
