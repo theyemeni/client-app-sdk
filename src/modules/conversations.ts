@@ -40,9 +40,14 @@ class ConversationsApi extends BaseApi {
      * Send a message to be filled into the interaction message box for the agent to review and send.
      * This function works specifically with a bound interaction when both the interaction and calling app
      * are visible, it is not intended (and will not work) for situations where the interaction is not active.
+     * 
+     * @param mode - The insertion mode to use when injecting the text into the agent's text box.
+     * 'insert' -> injects text at agent's cursor position, leaving other text intact.
+     * 
+     * @param message - The message to inject into the agent's text box.
      */
-    proposeMessage(message: string) {
-        super.sendMsgToPc('proposeMessage', { message });
+    proposeMessage(mode: 'insert', message: string) {
+        super.sendMsgToPc('proposeMessage', { mode, message });
     }
 }
 
