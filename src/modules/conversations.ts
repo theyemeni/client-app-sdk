@@ -46,8 +46,8 @@ class ConversationsApi extends BaseApi {
      * 
      * @param message - The message to inject into the agent's text box.
      */
-    proposeMessage(mode: 'insert', message: string) {
-        super.sendMsgToPc('proposeMessage', { mode, message });
+    proposeInteractionMessage(mode: 'insert', message: string) {
+        super.sendMsgToPc('proposeInteractionMessage', { mode, message });
     }
 }
 

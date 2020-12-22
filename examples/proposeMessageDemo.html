@@ -85,7 +85,7 @@
         customResponse.addEventListener('submit', event => {
             let message = event.target[0].value;
             console.log('form: ', message);
-            clientApp.conversations.proposeMessage('insert', message);
+            clientApp.conversations.proposeInteractionMessage('insert', message);
             event.preventDefault();
         });
 
@@ -93,7 +93,7 @@
             button.addEventListener('click', event => {
                 let message = event.target.innerHTML;
                 console.log('button: ', message);
-                clientApp.conversations.proposeMessage('insert', message);
+                clientApp.conversations.proposeInteractionMessage('insert', message);
             }));
         }());
         </script>
