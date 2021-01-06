@@ -66,7 +66,8 @@
         const precannedButtons = [
             node(container, `<button>Thank you for contacting us</button`),
             node(container, `<button>Have a nice day!</button`),
-            node(container, `<button>Let me ask my manager about that</button>`)
+            node(container, `<button>Let me ask my manager about that</button>`),
+            node(container, `<button>HTML will be <b>Sanitized</b></button>`)
         ];
 
         const customResponse = node(App, `
@@ -89,7 +90,7 @@
             event.preventDefault();
         });
 
-        precannedButtons.forEach(button => 
+        precannedButtons.forEach(button =>
             button.addEventListener('click', event => {
                 let message = event.target.innerHTML;
                 console.log('button: ', message);
